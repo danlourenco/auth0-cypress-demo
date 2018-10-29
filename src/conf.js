@@ -8,7 +8,7 @@ export default {
     domain: AUTH0_DOMAIN,
     clientID: AUTH0_CLIENT_ID,
     callbackUrl: `${ window.location.origin }/callback`,
-    returnTo: `${ window.location.orgin }`,
+    returnTo: `${ window.location.origin }`,
     responseType: 'token id_token',
     scope: 'openid profile email',
   },

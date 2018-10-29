@@ -11,7 +11,6 @@ export default class SecureRoute extends Component {
 
     return (
       <Route path={path} render={() => {
-        console.log(checkingSession);
         if (checkingSession) return <Loading />
 
         if (!Auth.isAuthenticated()) {
