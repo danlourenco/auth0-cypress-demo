@@ -52,16 +52,6 @@ class Auth {
     return new Date().getTime() < this.expiresAt;
   }
 
-  // parseHash = () => {
-  //   return new Promise((resolve, reject) => {
-  //     this.auth0.parseHash((err, authResult) => {
-  //       if (err) return reject(err);
-  //       if (!authResult || !authResult.idToken) return reject(err);
-  //       resolve(authResult);
-  //     });
-  //   })
-  // }
-
   // set auth creds on the instance
   setSession = (authResult, step) => {
     this.accessToken = authResult.accessToken;
@@ -100,7 +90,7 @@ class Auth {
   // check session and sets the auth tokens in memory on the Auth instance
   renewTokens = async () => {
     return this.checkSession()
-    .then(authResult => console.log(`authResult: ${authResult}`) || this.setSession(authResult))
+    .then(authResult => this.setSession(authResult))
   }
 
   scheduleTokenRenewal = () => {
