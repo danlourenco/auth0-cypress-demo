@@ -13,8 +13,7 @@ describe('login', () => {
         const callbackUrl = `/callback#access_token=${access_token}&scope=openid&id_token=${id_token}&expires_in=${expires_in}&token_type=Bearer&state=${auth0State.state}`;
         cy.visit(callbackUrl, {
           onBeforeLoad(win) {
-            win.localStorage.clear();
-            win.localStorage.setItem('com.auth0.auth.some-random-state', JSON.stringify(auth0State));
+            win.document.cookie = 'com.auth0.auth.some-random-state=' + JSON.stringify(auth0State);
           }
         });
       });
