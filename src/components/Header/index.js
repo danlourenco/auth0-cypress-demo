@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import styles from './header.module.scss';
+// import styles from './header.module.scss';
 import { Link } from 'react-router-dom';
 import Auth from '../../Auth';
+import { Button, Menu, Container } from 'semantic-ui-react';
 
 export default class Header extends Component {
 
@@ -16,17 +17,42 @@ export default class Header extends Component {
   render() {
     const actionButton =
      Auth.isAuthenticated()
-     ? (<button className={`${ styles.link } ${ styles.btnLink}`} onClick={ this.handleLogout }>Log Out</button>)
-     : (<button className={`${ styles.link } ${ styles.btnLink}`} onClick={ this.handleLogin }>Log In</button>);
+     ? (
+      <Button
+        as='a'
+        inverted
+        onClick={ this.handleLogout }
+      >
+        Log Out
+      </Button>
+      )
+     : (
+      <Button
+        as='a'
+        inverted
+        onClick={ this.handleLogin }
+      >
+        Log In
+      </Button>
+     );
     return (
-      <header className={ styles.header }>
-        <h1 className={ styles.brand }>My Auth0 App</h1>
-        <nav>
-          <Link className={ styles.link } to="/">Home</Link>
-          <Link className={ styles.link } to="/profile">Profile</Link>
-          { actionButton }
-        </nav>
-      </header>
+      <Menu
+        fixed='top'
+        inverted={true}
+        size='large'
+      >
+        <Container>
+          <Menu.Item as='a'>
+            <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.Item as='a'>
+            <Link to="/profile">Profile</Link>
+          </Menu.Item>
+          <Menu.Item position='right'>
+            {actionButton}
+          </Menu.Item>
+        </Container>
+      </Menu>
     )
   }
 }
