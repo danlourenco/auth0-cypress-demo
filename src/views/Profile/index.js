@@ -5,9 +5,6 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 
 export default class Profile extends Component {
-  // static propTypes = {
-  //   prop: PropTypes
-  // }
 
   componentWillMount = () => {
     const profile = Auth.getProfile();
@@ -27,6 +24,7 @@ export default class Profile extends Component {
     const cardStyle = {
       boxShadow: '0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15)'
     }
+
     return (
       <div >
       <p>You are on the profile route.</p>

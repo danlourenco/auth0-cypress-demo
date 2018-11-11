@@ -45,9 +45,15 @@ export default class Header extends Component {
           <Menu.Item as='a'>
             <Link to="/">Home</Link>
           </Menu.Item>
-          <Menu.Item as='a'>
-            <Link to="/profile">Profile</Link>
-          </Menu.Item>
+
+          {
+            Auth.isAuthenticated() && (
+            <Menu.Item as='a'>
+              <Link to="/profile">Profile</Link>
+            </Menu.Item>
+            )
+          }
+
           <Menu.Item position='right'>
             {actionButton}
           </Menu.Item>
