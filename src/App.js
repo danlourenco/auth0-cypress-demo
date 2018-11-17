@@ -34,6 +34,7 @@ class App extends Component {
       await Auth.handleAuthentication();
       props.history.replace('/');
     } catch(error) {
+      console.log('an error occured checking authentication');
       console.error(error);
     }
   }

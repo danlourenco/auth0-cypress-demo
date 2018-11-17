@@ -42,13 +42,13 @@ export default class Header extends Component {
         size='large'
       >
         <Container>
-          <Menu.Item as='a'>
+          <Menu.Item>
             <Link to="/">Home</Link>
           </Menu.Item>
 
           {
             Auth.isAuthenticated() && (
-            <Menu.Item as='a'>
+            <Menu.Item>
               <Link to="/profile">Profile</Link>
             </Menu.Item>
             )
