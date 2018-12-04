@@ -1,10 +1,16 @@
 import React from 'react'
-import styles from './home.module.scss';
+import auth from '../../Auth';
 
 export default function Home() {
+  const isAuthenticated = auth.isAuthenticated();
+
   return (
-    <div className={ styles.pageContainer} >
-      <p>You are on the home page.</p>
+    <div>
+      { isAuthenticated
+        ? (<p>You're logged in! Check out the profile page.</p>)
+        : (<p>Welcome! Please log in to the application.</p>)
+      }
     </div>
+
   )
 }

@@ -7,7 +7,7 @@ import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
 import Profile from './views/Profile';
 import Home from './views/Home';
-
+import { Segment } from 'semantic-ui-react';
 const Callback = () => (
     <Loading />
 );
@@ -34,13 +34,20 @@ class App extends Component {
       await Auth.handleAuthentication();
       props.history.replace('/');
     } catch(error) {
+      console.log('an error occured checking authentication');
       console.error(error);
     }
   }
 
   render() {
     return (
-      <div className="App">
+      <Segment
+        className="App"
+        // inverted
+        textAlign='center'
+        vertical
+        style={{ minHeight: 700, padding: '5em 0em' }}
+      >
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -53,7 +60,7 @@ class App extends Component {
             checkingSession={ this.state.checkingSession }
             component={Profile} />
         </Switch>
-      </div>
+      </Segment>
     );
   }
 }
