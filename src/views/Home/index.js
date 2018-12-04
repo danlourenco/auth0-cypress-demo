@@ -1,9 +1,16 @@
 import React from 'react'
+import auth from '../../Auth';
 
 export default function Home() {
+  const isAuthenticated = auth.isAuthenticated();
+
   return (
-    <div >
-      <p>You are on the home page.  Log in to check out your profile!</p>
+    <div>
+      { isAuthenticated
+        ? (<p>You're logged in! Check out the profile page.</p>)
+        : (<p>Welcome! Please log in to the application.</p>)
+      }
     </div>
+
   )
 }

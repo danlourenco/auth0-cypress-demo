@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Auth from '../../Auth';
-import { Card, Icon, Image } from 'semantic-ui-react'
-
+import { Card, Image } from 'semantic-ui-react'
 
 export default class Profile extends Component {
 
@@ -27,22 +25,15 @@ export default class Profile extends Component {
 
     return (
       <div >
-      <p>You are on the profile route.</p>
-
-      <Card centered style={cardStyle}>
-        <Image src={ picture } />
-        <Card.Content
-          textAlign='left'
-        >
-          <Card.Header> { nickname } </Card.Header>
-          <Card.Meta>{ email }</Card.Meta>
-        </Card.Content>
-        <Card.Content extra textAlign='left'>
-          <span>Additional Details here</span>
-        </Card.Content>
-      </Card>
-
-    </div>
+        <p>You are on the profile route.</p>
+        <Card centered style={cardStyle}>
+          <Image src={ picture } />
+          <Card.Content textAlign='left'>
+            <Card.Header> { nickname } </Card.Header>
+            <Card.Meta>{ email }</Card.Meta>
+          </Card.Content>
+        </Card>
+      </div>
     )
   }
 }

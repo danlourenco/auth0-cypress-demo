@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import styles from './header.module.scss';
 import { Link } from 'react-router-dom';
 import Auth from '../../Auth';
 import { Button, Menu, Container } from 'semantic-ui-react';
